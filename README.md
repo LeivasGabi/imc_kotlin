@@ -1,2 +1,2 @@
 # imc_kotlin
-Calculadora de IMC em Kotlin 
+Calculadora de IMC exercício em Kotlin 
