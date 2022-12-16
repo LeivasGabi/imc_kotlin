@@ -11,34 +11,47 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        var view = binding.root
-
-        setContentView(view)
-
-        binding.button.setOnClickListener {
-            calcularIMC()
-        }
-
+        viewBinding()
+        onClickCalculate()
     }
 
-    fun calcularIMC() {
-        var altura: Float = binding.altura.text.toString().toFloat()
-        var peso: Float = binding.peso.text.toString().toFloat()
+    fun viewBinding(){
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        var view = binding.root
+        setContentView(view)
+    }
+    fun onClickCalculate(){
+        binding.button.setOnClickListener {
+            calculateBMI()
+        }
+    }
+    fun calculateBMI() {
+        val height: Float = binding.height.text.toString().toFloat()
+        val weight: Float = binding.weight.text.toString().toFloat()
 
-        val resultado = peso / (altura * altura)
+        val magreza = "Magreza"
+        val pesoNormal = "Peso Normal"
+        val sobrepeso  = "Sobrepeso"
+        val obesidade = "Obesidade"
 
-        if (resultado < 18){
-            binding.resultado.text = "Resultado: Magreza %.2f".format(resultado)
+        val resultBMI = weight/(height * height)
+
+        if(resultBMI < 18) {
+            binding.result.text = "%.2f".format(resultBMI)
+            binding.rating.text = magreza
         }
-        if (resultado >= 18.6 && resultado <= 24){
-            binding.resultado.text = "Resultado: Peso Normal %.2f".format(resultado)
+        if (resultBMI in 18.6..24.0) {
+            binding.result.text = "%.2f".format(resultBMI)
+            binding.rating.text = pesoNormal
         }
-        if (resultado >= 25 && resultado <= 29){
-            binding.resultado.text = "Resultado: Sobrepeso %.2f".format(resultado)
+        if (resultBMI in 25.0..29.0) {
+            binding.result.text = "%.2f".format(resultBMI)
+            binding.rating.text = sobrepeso
         }
-        if (resultado > 30){
-            binding.resultado.text = "Resultado: Obesidade %.2f".format(resultado)
+
+        if (resultBMI > 30) {
+            binding.result.text = "%.2f".format(resultBMI)
+            binding.rating.text = obesidade
         }
     }
 }

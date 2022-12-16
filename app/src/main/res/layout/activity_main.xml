@@ -6,30 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/peso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:ems="10"
-        android:maxLength="4"
-        android:inputType="numberDecimal"
-        android:hint="Peso"
-        app:layout_constraintStart_toStartOf="@+id/altura"
-        app:layout_constraintTop_toBottomOf="@+id/altura" />
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="176dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="124dp"
+        android:text="@string/text_rating"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result" />
 
     <EditText
-        android:id="@+id/altura"
+        android:id="@+id/weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="117dp"
-        android:layout_marginBottom="291dp"
-        android:maxLength="4"
+        android:layout_marginBottom="69dp"
         android:ems="10"
+        android:hint="@string/text_weight"
         android:inputType="numberDecimal"
-        android:hint="Altura"
-        app:layout_constraintBottom_toTopOf="@+id/resultado"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:maxLength="4"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/height"
+        app:layout_constraintTop_toBottomOf="@+id/height" />
+
+    <EditText
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="@string/text_height"
+        android:inputType="numberDecimal"
+        android:maxLength="4"
+        app:layout_constraintBottom_toTopOf="@+id/weight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,24 +52,24 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        android:text="Calcular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/peso" />
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="27dp"
+        android:text="@string/btn_calculate"
+        app:layout_constraintBottom_toTopOf="@+id/result"
+        app:layout_constraintStart_toStartOf="@+id/result"
+        app:layout_constraintTop_toBottomOf="@+id/weight" />
 
     <TextView
-        android:id="@+id/resultado"
-        android:layout_width="258dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="199dp"
-        android:text="Resultado"
-        android:textSize="20sp"
+        android:id="@+id/result"
+        android:layout_width="174dp"
+        android:layout_height="0dp"
+        android:text="@string/text_result"
         android:textAlignment="center"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/altura" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
