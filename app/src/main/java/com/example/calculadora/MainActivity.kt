@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
             binding.result.text = "%.2f".format(resultBMI)
             binding.rating.text = sobrepeso
         }
-
         if (resultBMI > 30) {
             binding.result.text = "%.2f".format(resultBMI)
             binding.rating.text = obesidade
